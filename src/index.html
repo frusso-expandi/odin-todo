@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project and Todo List</title>
+    <script src="./js/index.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #333;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      .container {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      input,
+      select {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        background: #5cb85c;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px;
+      }
+      button:hover {
+        background: #4cae4c;
+      }
+      #project-list,
+      #todo-list {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 20px;
+      }
+      .list-item {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .todo-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add Project</h1>
+      <form id="add-project-form">
+        <input
+          type="text"
+          name="projectName"
+          id="projectName"
+          placeholder="New Project Name"
+        />
+      </form>
+      <button id="add-project-btn">Add Project</button>
+    </div>
+
+    <div class="container">
+      <h1>Add Todo</h1>
+      <form id="add-todo-form">
+        <select name="projectId" id="projectSelect"></select>
+        <input type="text" name="title" placeholder="Title" id="title" />
+        <input
+          type="text"
+          name="description"
+          placeholder="Description"
+          id="description"
+        />
+        <input type="date" name="dueDate" id="dueDate" />
+        <select name="priority" id="priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </form>
+      <button id="add-todo-btn">Add Todo</button>
+    </div>
+
+    <div id="project-list" class="container">
+      <h1>Project List</h1>
+    </div>
+
+    <div id="todo-list" class="container">
+      <h1>Todo List</h1>
+    </div>
+  </body>
+</html>
