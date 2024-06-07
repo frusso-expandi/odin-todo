@@ -50,9 +50,15 @@ export const Repository = {
         }
       });
 
-    let todoIndexToDelete = projectToUpdate[0].project.todos.findIndex((el)=>{el.id == todo.id})
+    let todoIndexToDelete = projectToUpdate[0].project.todos.findIndex((el)=>el.id === todo.id)
 
-    console.log(todoIndexToDelete)
+    projectToUpdate[0].project.todos.splice(todoIndexToDelete, 1)
+
+    localStorage.setItem("projects", JSON.stringify([]));
+     
+    alreadySavedProjects.splice(projectToUpdate[0].position ,1, projectToUpdate[0].project);
+
+    localStorage.setItem("projects", JSON.stringify(alreadySavedProjects));
     
   }
 

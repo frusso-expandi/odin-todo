@@ -91,7 +91,7 @@ export const DOM = {
       const deleteBtn = document.createElement("button");
       deleteBtn.classList.add("button-delete")
       deleteBtn.textContent = "delete"
-      deleteBtn.addEventListener("click", ()=>{Repository.removeTodo(project.id, todo)})
+      deleteBtn.addEventListener("click", ()=>{this.removeTodo(project.id, todo)})
       todoCard.appendChild(deleteBtn)
 
 
@@ -133,6 +133,11 @@ export const DOM = {
     this.projectForm.reset();
     location.reload()
   },
+
+  removeTodo(projectId, todo){
+    Repository.removeTodo(projectId, todo);
+    location.reload()
+  }
 };
 
 let todoObj = {};
