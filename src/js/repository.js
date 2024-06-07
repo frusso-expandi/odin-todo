@@ -16,7 +16,7 @@ export const Repository = {
   saveTodo(projectId, todo) {
     let alreadySavedProjects = this.getProjects();
 
-    console.log(alreadySavedProjects)
+    console.log(alreadySavedProjects);
 
     let projectToValorize = alreadySavedProjects
       .map((el, index) => ({ project: el, position: index }))
@@ -27,8 +27,8 @@ export const Repository = {
       });
 
     projectToValorize[0].project.todos.push(todo);
-    
-    localStorage.setItem("projects", JSON.stringify([]))
+
+    localStorage.setItem("projects", JSON.stringify([]));
 
     alreadySavedProjects.splice(
       projectToValorize[0].position,
@@ -36,6 +36,24 @@ export const Repository = {
       projectToValorize[0].project
     );
 
-    localStorage.setItem("projects", JSON.stringify(alreadySavedProjects))
+    localStorage.setItem("projects", JSON.stringify(alreadySavedProjects));
   },
-};
+
+  removeTodo(projectId, todo) {
+    let alreadySavedProjects = Repository.getProjects();
+
+    let projectToUpdate = alreadySavedProjects
+      .map((el, index) => ({ project: el, position: index }))
+      .filter((el) => {
+        if (el.project.id == projectId) {
+          return el;
+        }
+      });
+
+    let todoIndexToDelete = projectToUpdate[0].project.todos.findIndex((el)=>{el.id == todo.id})
+
+    console.log(todoIndexToDelete)
+    
+  }
+
+}

@@ -88,6 +88,13 @@ export const DOM = {
       priorityElement.textContent = "Priority: " + todo.priority;
       todoCard.appendChild(priorityElement);
 
+      const deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("button-delete")
+      deleteBtn.textContent = "delete"
+      deleteBtn.addEventListener("click", ()=>{Repository.removeTodo(project.id, todo)})
+      todoCard.appendChild(deleteBtn)
+
+
       this.todoList.appendChild(todoCard);
     })
     
